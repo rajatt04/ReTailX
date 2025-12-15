@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "470593330396",
+    "project_id": "retailx-feca0",
+    "storage_bucket": "retailx-feca0.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:470593330396:android:e12ad87b6720526094a819",
+        "android_client_info": {
+          "package_name": "com.rajatt7z.ReTailX"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1RQ4ByFhXNGPDK-VUo5VpnD3GKxbvwug"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

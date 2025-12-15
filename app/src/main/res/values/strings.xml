@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">ReTailX</string>
+    <string name="app_des">ReTailX is a smart product management system with useful features</string>
+    <string name="ai_sales_prediction_amp_chatbot_for_support"><![CDATA[🤖 Ai Sales Prediction & Chatbot For Support]]></string>
+    <string name="data_insights_graphs_charts_amp_analytics"><![CDATA[📊 Data Insights, Graphs, Charts & Analytics]]></string>
+    <string name="product_management_amp_more"><![CDATA[🛠 Product Management & More]]></string>
+    <string name="login_as_customer">Login As Employee</string>
+    <string name="business_login">Admin Login</string>
+    <string name="customer_login">Customer Login</string>
+    <string name="don_t_have_an_account_register">Don\'t have an account? Register</string>
+    <string name="email_address">Email Address</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="customer_registration">Customer Registration</string>
+    <string name="full_name">Full Name</string>
+    <string name="register">Register</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="app_info">App Info</string>
+    <string name="todo">TODO</string>
+    <string name="smart_analytics">Smart Analytics</string>
+    <string name="modern_retail">Modern Retail</string>
+    <string name="empower_your_business_with_ai_predictions_and_seamless_inventory_control">Empower your business with AI predictions and seamless inventory control.</string>
+    <string name="ai_sales_prediction">AI Sales Prediction</string>
+    <string name="forecast_trends_with_99_accuracy">Forecast trends with 99% accuracy.</string>
+    <string name="inventory_control">Inventory Control</string>
+    <string name="real_time_stock_tracking">Real-time stock tracking.</string>
+</resources>
