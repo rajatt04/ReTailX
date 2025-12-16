@@ -101,5 +101,36 @@ class AuthRepository {
 
     fun getCurrentUser() = auth.currentUser
 
+    suspend fun getEmployees(): Resource<List<com.rajatt7z.retailx.models.Employee>> {
+        return try {
+            val snapshot = db.collection("users")
+                .whereEqualTo("userType", "employee")
+                .get()
+                .await()
+            val employees = snapshot.toObjects(com.rajatt7z.retailx.models.Employee::class.java)
+            Resource.Success(employees)
+        } catch (e: Exception) {
+            Resource.Error(e.message ?: "Failed to fetch employees")
+        }
+    }
+
+    suspend fun updateEmployee(uid: String, updates: Map<String, Any>): Resource<String> {
+        return try {
+            db.collection("users").document(uid).update(updates).await()
+            Resource.Success("Employee updated successfully")
+        } catch (e: Exception) {
+            Resource.Error(e.message ?: "Failed to update employee")
+        }
+    }
+
+    suspend fun deleteEmployee(uid: String): Resource<String> {
+        return try {
+            db.collection("users").document(uid).delete().await()
+            Resource.Success("Employee deleted successfully")
+        } catch (e: Exception) {
+            Resource.Error(e.message ?: "Failed to delete employee")
+        }
+    }
+
     fun logout() = auth.signOut()
 }

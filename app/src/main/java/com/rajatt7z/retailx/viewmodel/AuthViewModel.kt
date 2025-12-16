@@ -77,6 +77,40 @@ class AuthViewModel : ViewModel() {
         }
     }
     
+    private val _employees = MutableLiveData<Resource<List<com.rajatt7z.retailx.models.Employee>>>()
+    val employees: LiveData<Resource<List<com.rajatt7z.retailx.models.Employee>>> = _employees
+
+    fun fetchEmployees() {
+        _employees.value = Resource.Loading()
+        viewModelScope.launch {
+            val result = repository.getEmployees()
+            _employees.value = result
+        }
+    }
+
+    fun updateEmployee(uid: String, updates: Map<String, Any>) {
+        _authStatus.value = Resource.Loading()
+        viewModelScope.launch {
+            val result = repository.updateEmployee(uid, updates)
+            _authStatus.value = result
+            // Refresh list after update
+            if (result is Resource.Success) {
+                fetchEmployees()
+            }
+        }
+    }
+
+    fun deleteEmployee(uid: String) {
+        _authStatus.value = Resource.Loading()
+        viewModelScope.launch {
+            val result = repository.deleteEmployee(uid)
+            _authStatus.value = result
+            if (result is Resource.Success) {
+                fetchEmployees()
+            }
+        }
+    }
+
     fun logout() {
         repository.logout()
     }
