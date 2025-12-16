@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/admin_nav_graph"
+    app:startDestination="@id/dashboardOverviewFragment">
+
+    <fragment
+        android:id="@+id/dashboardOverviewFragment"
+        android:name="com.rajatt7z.retailx.fragments.DashboardOverviewFragment"
+        android:label="Dashboard Overview"
+        tools:layout="@layout/fragment_dashboard_overview">
+        <action
+            android:id="@+id/action_overview_to_sales"
+            app:destination="@id/salesChartFragment" />
+        <action
+            android:id="@+id/action_overview_to_lowStock"
+            app:destination="@id/lowStockFragment" />
+        <action
+            android:id="@+id/action_overview_to_recentOrders"
+            app:destination="@id/recentOrdersFragment" />
+        <action
+            android:id="@+id/action_overview_to_topSelling"
+            app:destination="@id/topSellingFragment" />
+        <action
+            android:id="@+id/action_overview_to_productList"
+            app:destination="@id/productListFragment" />
+        <action
+            android:id="@+id/action_overview_to_employeeList"
+            app:destination="@id/employeeListFragment" />
+        <action
+            android:id="@+id/action_overview_to_settings"
+            app:destination="@id/adminSettingsFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/slide_out_bottom"
+            app:popEnterAnim="@anim/slide_in_bottom"
+            app:popExitAnim="@anim/slide_out_bottom" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/employeeListFragment"
+        android:name="com.rajatt7z.retailx.fragments.EmployeeListFragment"
+        android:label="Manage Employees"
+        tools:layout="@layout/fragment_employee_list" />
+
+    <fragment
+        android:id="@+id/adminSettingsFragment"
+        android:name="com.rajatt7z.retailx.fragments.AdminSettingsFragment"
+        android:label="Admin Settings"
+        tools:layout="@layout/fragment_admin_settings">
+        <action
+            android:id="@+id/action_settings_to_profile"
+            app:destination="@id/adminProfileFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/slide_out_bottom"
+            app:popEnterAnim="@anim/slide_in_bottom"
+            app:popExitAnim="@anim/slide_out_bottom" />
+        <action
+            android:id="@+id/action_settings_to_password"
+            app:destination="@id/changePasswordFragment"
+             app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/slide_out_bottom"
+            app:popEnterAnim="@anim/slide_in_bottom"
+            app:popExitAnim="@anim/slide_out_bottom" />
+        <action
+            android:id="@+id/action_settings_to_config"
+            app:destination="@id/appConfigFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/slide_out_bottom"
+            app:popEnterAnim="@anim/slide_in_bottom"
+            app:popExitAnim="@anim/slide_out_bottom" />
+        <action
+            android:id="@+id/action_settings_to_rbac"
+            app:destination="@id/rbacFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/slide_out_bottom"
+            app:popEnterAnim="@anim/slide_in_bottom"
+            app:popExitAnim="@anim/slide_out_bottom" />
+        <action
+            android:id="@+id/action_settings_to_logs"
+            app:destination="@id/activityLogsFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/slide_out_bottom"
+            app:popEnterAnim="@anim/slide_in_bottom"
+            app:popExitAnim="@anim/slide_out_bottom" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/adminProfileFragment"
+        android:name="com.rajatt7z.retailx.fragments.settings.AdminProfileFragment"
+        android:label="Admin Profile"
+        tools:layout="@layout/fragment_admin_profile" />
+        
+    <fragment
+        android:id="@+id/changePasswordFragment"
+        android:name="com.rajatt7z.retailx.fragments.settings.ChangePasswordFragment"
+        android:label="Change Password"
+        tools:layout="@layout/fragment_change_password" />
+        
+    <fragment
+        android:id="@+id/appConfigFragment"
+        android:name="com.rajatt7z.retailx.fragments.settings.AppConfigFragment"
+        android:label="App Config"
+        tools:layout="@layout/fragment_app_config" />
+        
+    <fragment
+        android:id="@+id/rbacFragment"
+        android:name="com.rajatt7z.retailx.fragments.settings.RBACFragment"
+        android:label="RBAC"
+        tools:layout="@layout/fragment_rbac" />
+        
+    <fragment
+        android:id="@+id/activityLogsFragment"
+        android:name="com.rajatt7z.retailx.fragments.settings.ActivityLogsFragment"
+        android:label="Activity Logs"
+        tools:layout="@layout/fragment_activity_logs" />
+
+    <fragment
+        android:id="@+id/salesChartFragment"
+        android:name="com.rajatt7z.retailx.fragments.SalesChartFragment"
+        android:label="Sales Report"
+        tools:layout="@layout/fragment_sales_chart" />
+
+    <fragment
+        android:id="@+id/lowStockFragment"
+        android:name="com.rajatt7z.retailx.fragments.LowStockFragment"
+        android:label="Low Stock Alerts"
+        tools:layout="@layout/fragment_low_stock" />
+
+    <fragment
+        android:id="@+id/recentOrdersFragment"
+        android:name="com.rajatt7z.retailx.fragments.RecentOrdersFragment"
+        android:label="Recent Orders"
+        tools:layout="@layout/fragment_recent_orders" />
+
+    <fragment
+        android:id="@+id/topSellingFragment"
+        android:name="com.rajatt7z.retailx.fragments.TopSellingFragment"
+        android:label="Top Selling Products"
+        tools:layout="@layout/fragment_top_selling" />
+
+    <fragment
+        android:id="@+id/productListFragment"
+        android:name="com.rajatt7z.retailx.fragments.products.ProductListFragment"
+        android:label="Products"
+        tools:layout="@layout/fragment_product_list">
+        <action
+            android:id="@+id/action_productListFragment_to_addProductFragment"
+            app:destination="@id/addProductFragment" />
+        <action
+            android:id="@+id/action_productListFragment_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addProductFragment"
+        android:name="com.rajatt7z.retailx.fragments.products.AddProductFragment"
+        android:label="Add Product"
+        tools:layout="@layout/fragment_add_product">
+        <action
+            android:id="@+id/action_addProductFragment_to_productImageUploadFragment"
+            app:destination="@id/productImageUploadFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/updateProductFragment"
+        android:name="com.rajatt7z.retailx.fragments.products.UpdateProductFragment"
+        android:label="Update Product"
+        tools:layout="@layout/fragment_update_product">
+        <argument
+            android:name="productId"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/productDetailsFragment"
+        android:name="com.rajatt7z.retailx.fragments.products.ProductDetailsFragment"
+        android:label="Product Details"
+        tools:layout="@layout/fragment_product_details">
+        <argument
+            android:name="productId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_productDetailsFragment_to_updateProductFragment"
+            app:destination="@id/updateProductFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/productImageUploadFragment"
+        android:name="com.rajatt7z.retailx.fragments.products.ProductImageUploadFragment"
+        android:label="Upload Images"
+        tools:layout="@layout/fragment_product_image_upload">
+        <argument
+            android:name="productId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_productImageUploadFragment_to_productListFragment"
+            app:destination="@id/productListFragment"
+            app:popUpTo="@id/productListFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>
