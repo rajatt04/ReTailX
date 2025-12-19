@@ -18,14 +18,15 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <!-- Search Bar Container -->
-    <androidx.cardview.widget.CardView
+    <!-- Search Bar Container -->
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/cvSearch"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="8dp"
-        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="28dp"
+        app:cardElevation="0dp"
+        style="@style/Widget.Material3.CardView.Elevated"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -35,10 +36,19 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_vertical"
-            android:paddingStart="16dp"
-            android:paddingEnd="8dp"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
             android:paddingTop="4dp"
             android:paddingBottom="4dp">
+
+            <ImageButton
+                android:id="@+id/btnSearch"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@android:drawable/ic_menu_search"
+                android:contentDescription="Search"
+                app:tint="?attr/colorOnSurfaceVariant" />
 
             <EditText
                 android:id="@+id/etSearch"
@@ -47,20 +57,17 @@
                 android:layout_weight="1"
                 android:background="@null"
                 android:hint="Search for a location..."
+                android:textColorHint="?attr/colorOnSurfaceVariant"
+                android:textColor="?attr/colorOnSurface"
                 android:textSize="16sp"
+                android:fontFamily="@font/circular_spotify"
                 android:imeOptions="actionSearch"
                 android:inputType="text"
+                android:paddingStart="0dp"
+                android:paddingEnd="8dp"
                 android:maxLines="1" />
-
-            <ImageButton
-                android:id="@+id/btnSearch"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:src="@android:drawable/ic_menu_search"
-                app:tint="?attr/colorPrimary" />
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
     <!-- Center Pin -->
     <!-- Positioned slightly above center layout to account for pin tip -->
@@ -108,25 +115,23 @@
             android:orientation="vertical"
             android:padding="20dp">
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Selected Location"
                 android:fontFamily="@font/circular_spotify"
                 android:textSize="12sp"
-                android:textColor="#5F6368"
                 android:textStyle="bold"
                 android:textAllCaps="true"
                 android:layout_marginBottom="8dp"/>
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvCurrentAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Move pin to select location"
                 android:fontFamily="@font/circular_spotify"
                 android:textSize="16sp"
-                android:textColor="#202124"
                 android:maxLines="2"
                 android:ellipsize="end"
                 android:layout_marginBottom="20dp"

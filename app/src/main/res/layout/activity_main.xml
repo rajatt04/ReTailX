@@ -46,13 +46,13 @@
                 android:id="@+id/cardIcon"
                 android:layout_width="160dp"
                 android:layout_height="160dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginBottom="32dp"
                 app:cardBackgroundColor="?attr/colorControlHighlight"
                 app:cardCornerRadius="48dp"
                 app:cardElevation="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/tvAppName"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintStart_toStartOf="parent">
 
                 <ImageView
                     android:layout_width="80dp"
@@ -68,75 +68,27 @@
                 android:id="@+id/tvAppName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginBottom="32dp"
                 android:fontFamily="@font/circular_spotify"
                 android:text="@string/app_name"
+                android:textColor="?attr/colorPrimary"
                 android:textSize="36sp"
-                android:textColor="?attr/colorPrimary"
+                app:layout_constraintBottom_toTopOf="@+id/featureCardsContainer"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cardIcon" />
+                app:layout_constraintStart_toStartOf="parent" />
 
-            <!-- Tagline -->
-            <TextView
-                android:id="@+id/tvTagline"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:fontFamily="@font/circular_spotify"
-                android:text="@string/smart_analytics"
-                android:textAlignment="center"
-                android:textColor="?attr/colorPrimary"
-                android:textSize="24sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvAppName" />
-
-            <TextView
-                android:id="@+id/tvModernRetail"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/circular_spotify"
-                android:text="@string/modern_retail"
-                android:textAlignment="center"
-                android:textColor="?attr/colorSecondary"
-                android:textSize="32sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@id/tvTagline"
-                app:layout_constraintStart_toStartOf="@id/tvTagline"
-                app:layout_constraintTop_toBottomOf="@id/tvTagline" />
-
-            <!-- Description -->
-            <TextView
-                android:id="@+id/tvDescription"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:fontFamily="@font/circular_spotify"
-                android:lineSpacingExtra="4dp"
-                android:text="@string/empower_your_business_with_ai_predictions_and_seamless_inventory_control"
-                android:textAlignment="center"
-                android:textColor="?attr/colorSecondary"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvModernRetail" />
-
-            <!-- Feature Cards Container -->
+            <!-- Feature Cards Container - Row 1 -->
             <LinearLayout
                 android:id="@+id/featureCardsContainer"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="24dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="16dp"
                 android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@+id/featureCardsContainer2"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvDescription">
+                app:layout_constraintStart_toStartOf="parent">
 
                 <!-- AI Prediction Card -->
                 <com.google.android.material.card.MaterialCardView
@@ -168,7 +120,8 @@
                                 android:layout_height="24dp"
                                 android:layout_gravity="center"
                                 android:contentDescription="@string/todo"
-                                android:src="@drawable/baseline_trending_up_24" />
+                                android:src="@drawable/baseline_person_24"
+                                app:tint="@color/white" />
 
                         </com.google.android.material.card.MaterialCardView>
 
@@ -182,21 +135,10 @@
                             android:textColor="?attr/colorPrimary"
                             android:textSize="14sp"
                             android:textStyle="bold"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/iconAI" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/circular_spotify"
-                            android:text="@string/forecast_trends_with_99_accuracy"
-                            android:textColor="?attr/colorControlActivated"
-                            android:textSize="11sp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/tvAITitle" />
+                            app:layout_constraintTop_toBottomOf="@id/iconAI" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -246,21 +188,133 @@
                             android:textColor="?attr/colorPrimary"
                             android:textSize="14sp"
                             android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/iconInventory" />
 
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+            <!-- Feature Cards Container - Row 2 -->
+            <LinearLayout
+                android:id="@+id/featureCardsContainer2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="32dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@+id/progressBar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <!-- Firebase Sync Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="?attr/colorControlHighlight"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="16dp">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/iconSync"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            app:cardBackgroundColor="?attr/colorPrimary"
+                            app:cardCornerRadius="20dp"
+                            app:cardElevation="0dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_gravity="center"
+                                android:contentDescription="@string/todo"
+                                android:src="@drawable/round_sync_24"
+                                app:tint="@color/white" />
+
+                        </com.google.android.material.card.MaterialCardView>
+
                         <TextView
+                            android:id="@+id/tvSyncTitle"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
                             android:fontFamily="@font/circular_spotify"
-                            android:text="@string/real_time_stock_tracking"
-                            android:textColor="?attr/colorControlActivated"
-                            android:textSize="11sp"
+                            android:text="FireBase &amp; RoomDB Sync"
+                            android:textColor="?attr/colorPrimary"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/tvInventoryTitle" />
+                            app:layout_constraintTop_toBottomOf="@id/iconSync" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Material 3 Design Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="?attr/colorControlHighlight"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="16dp">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/iconDesign"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            app:cardBackgroundColor="?attr/colorPrimary"
+                            app:cardCornerRadius="20dp"
+                            app:cardElevation="0dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_gravity="center"
+                                android:contentDescription="@string/todo"
+                                android:src="@drawable/rounded_palette_24"
+                                app:tint="@color/white" />
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <TextView
+                            android:id="@+id/tvDesignTitle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="@font/circular_spotify"
+                            android:text="Material 3 Expressive Design"
+                            android:textColor="?attr/colorPrimary"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/iconDesign" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -275,8 +329,8 @@
                 android:layout_width="0dp"
                 android:layout_height="64dp"
                 android:layout_marginStart="32dp"
-                android:layout_marginTop="40dp"
                 android:layout_marginEnd="32dp"
+                android:layout_marginBottom="8dp"
                 android:fontFamily="@font/circular_spotify"
                 android:text="@string/business_login"
                 android:textAllCaps="false"
@@ -286,9 +340,9 @@
                 app:iconGravity="textStart"
                 app:iconPadding="12dp"
                 app:iconSize="24dp"
+                app:layout_constraintBottom_toTopOf="@+id/loginCustomerBtn"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/featureCardsContainer" />
+                app:layout_constraintStart_toStartOf="parent" />
 
             <!-- Customer Login Button -->
             <com.google.android.material.button.MaterialButton
@@ -297,8 +351,8 @@
                 android:layout_width="0dp"
                 android:layout_height="64dp"
                 android:layout_marginStart="32dp"
-                android:layout_marginTop="8dp"
                 android:layout_marginEnd="32dp"
+                android:layout_marginBottom="16dp"
                 android:fontFamily="@font/circular_spotify"
                 android:text="@string/login_as_customer"
                 android:textAllCaps="false"
@@ -308,9 +362,9 @@
                 app:iconGravity="textStart"
                 app:iconPadding="12dp"
                 app:iconSize="24dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/loginBusinessBtn"/>
+                app:layout_constraintStart_toStartOf="parent" />
 
             <!-- Progress Bar -->
             <com.google.android.material.progressindicator.LinearProgressIndicator

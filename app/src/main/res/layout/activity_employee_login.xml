@@ -36,6 +36,8 @@
 
         <EditText
             android:id="@+id/etEmail"
+            android:drawableStart="@drawable/rounded_mail_24"
+            android:drawablePadding="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
@@ -67,6 +69,8 @@
 
         <EditText
             android:id="@+id/etPassword"
+            android:drawableStart="@drawable/rounded_lock_24"
+            android:drawablePadding="16sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
