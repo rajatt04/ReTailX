@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import android.widget.EditText
 import android.widget.RadioButton
 import android.widget.RadioGroup
@@ -115,41 +116,32 @@ class EmployeeListFragment : Fragment() {
     private fun showAddEmployeeDialog() {
         val dialog = android.app.Dialog(requireContext(), R.style.Theme_ReTailX_FullScreenDialog)
         dialog.requestWindowFeature(android.view.Window.FEATURE_NO_TITLE)
-        
-        val dialogView = LayoutInflater.from(requireContext()).inflate(R.layout.dialog_add_employee, null)
-        dialog.setContentView(dialogView)
-        
+
+        val dialogBinding = com.rajatt7z.retailx.databinding.DialogAddEmployeeBinding.inflate(layoutInflater)
+        dialog.setContentView(dialogBinding.root)
+
         dialog.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
 
-        val toolbar = dialogView.findViewById<com.google.android.material.appbar.MaterialToolbar>(R.id.toolbar)
-        toolbar.title = "Add New Employee"
-        toolbar.setNavigationOnClickListener { dialog.dismiss() }
-        
-        val etName = dialogView.findViewById<EditText>(R.id.etEmployeeName)
-        val etPhone = dialogView.findViewById<EditText>(R.id.etEmployeePhone)
-        val etEmail = dialogView.findViewById<EditText>(R.id.etEmployeeEmail)
-        val etPassword = dialogView.findViewById<EditText>(R.id.etEmployeePassword)
-        val spinnerRole = dialogView.findViewById<Spinner>(R.id.spinnerRole)
-        val rgPermissions = dialogView.findViewById<RadioGroup>(R.id.rgPermissions)
-        val rbViewer = dialogView.findViewById<RadioButton>(R.id.rbViewer)
-        
+        dialogBinding.toolbar.title = "Add New Employee"
+        dialogBinding.toolbar.setNavigationOnClickListener { dialog.dismiss() }
+
         // Setup Spinner
         val roles = arrayOf("Store Manager", "Inventory Manager", "Sales Executive")
         val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, roles)
-        spinnerRole.adapter = adapter
-        
-        // Default permission
-        rbViewer.isChecked = true
+        dialogBinding.spinnerRole.setAdapter(adapter)
 
-        toolbar.setOnMenuItemClickListener { menuItem ->
+        // Default permission
+        dialogBinding.rgPermissions.check(R.id.rbViewer)
+
+        dialogBinding.toolbar.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.action_save -> {
-                    val name = etName.text.toString().trim()
-                    val phone = etPhone.text.toString().trim()
-                    val email = etEmail.text.toString().trim()
-                    val password = etPassword.text.toString().trim()
-                    val role = spinnerRole.selectedItem.toString()
-                    val permission = if (rgPermissions.checkedRadioButtonId == R.id.rbEditor) "Editor" else "Viewer"
+                    val name = dialogBinding.etEmployeeName.text.toString().trim()
+                    val phone = dialogBinding.etEmployeePhone.text.toString().trim()
+                    val email = dialogBinding.etEmployeeEmail.text.toString().trim()
+                    val password = dialogBinding.etEmployeePassword.text.toString().trim()
+                    val role = dialogBinding.spinnerRole.text.toString()
+                    val permission = if (dialogBinding.rgPermissions.checkedButtonId == R.id.rbEditor) "Editor" else "Viewer"
 
                     if (validation(name, phone, email, password)) {
                         val userMap: HashMap<String, Any> = hashMapOf(
@@ -161,7 +153,7 @@ class EmployeeListFragment : Fragment() {
                             "permissions" to permission,
                             "createdAt" to System.currentTimeMillis()
                         )
-                        
+
                         viewModel.createEmployee(email, password, userMap)
                         dialog.dismiss()
                     } else {
@@ -179,58 +171,52 @@ class EmployeeListFragment : Fragment() {
     private fun showEditEmployeeDialog(employee: Employee) {
         val dialog = android.app.Dialog(requireContext(), R.style.Theme_ReTailX_FullScreenDialog)
         dialog.requestWindowFeature(android.view.Window.FEATURE_NO_TITLE)
-        
-        val dialogView = LayoutInflater.from(requireContext()).inflate(R.layout.dialog_add_employee, null)
-        dialog.setContentView(dialogView)
-        
-        dialog.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
-        
-        val toolbar = dialogView.findViewById<com.google.android.material.appbar.MaterialToolbar>(R.id.toolbar)
-        toolbar.title = "Edit Employee"
-        toolbar.setNavigationOnClickListener { dialog.dismiss() }
 
-        val etName = dialogView.findViewById<EditText>(R.id.etEmployeeName)
-        val etPhone = dialogView.findViewById<EditText>(R.id.etEmployeePhone)
-        val etEmail = dialogView.findViewById<EditText>(R.id.etEmployeeEmail)
-        val etPassword = dialogView.findViewById<EditText>(R.id.etEmployeePassword)
-        val spinnerRole = dialogView.findViewById<Spinner>(R.id.spinnerRole)
-        val rgPermissions = dialogView.findViewById<RadioGroup>(R.id.rgPermissions)
-        val rbViewer = dialogView.findViewById<RadioButton>(R.id.rbViewer)
-        val rbEditor = dialogView.findViewById<RadioButton>(R.id.rbEditor)
-        
+        val dialogBinding = com.rajatt7z.retailx.databinding.DialogAddEmployeeBinding.inflate(layoutInflater)
+        dialog.setContentView(dialogBinding.root)
+
+        dialog.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+
+        dialogBinding.toolbar.title = "Edit Employee"
+        dialogBinding.toolbar.setNavigationOnClickListener { dialog.dismiss() }
+
         // Setup Spinner
         val roles = arrayOf("Store Manager", "Inventory Manager", "Sales Executive")
         val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, roles)
-        spinnerRole.adapter = adapter
-        
+        dialogBinding.spinnerRole.setAdapter(adapter)
+
         // Pre-fill data
-        etName.setText(employee.name)
-        etPhone.setText(employee.phone)
-        etEmail.setText(employee.email)
-        etPassword.hint = "Password"
-        
+        dialogBinding.etEmployeeName.setText(employee.name)
+        dialogBinding.etEmployeePhone.setText(employee.phone)
+        dialogBinding.etEmployeeEmail.setText(employee.email)
+        dialogBinding.etEmployeePassword.hint = "Password"
+
         // Enable editing for Email and Password
-        etEmail.isEnabled = true
-        etPassword.isEnabled = true
-        
+        dialogBinding.etEmployeeEmail.isEnabled = true
+        dialogBinding.etEmployeePassword.isEnabled = true
+
         val roleIndex = roles.indexOf(employee.role)
-        if (roleIndex >= 0) spinnerRole.setSelection(roleIndex)
-        
-        if (employee.permissions == "Editor") rbEditor.isChecked = true else rbViewer.isChecked = true
+        if (roleIndex >= 0) dialogBinding.spinnerRole.setText(employee.role, false)
+
+        if (employee.permissions == "Editor") {
+            dialogBinding.rgPermissions.check(R.id.rbEditor)
+        } else {
+            dialogBinding.rgPermissions.check(R.id.rbViewer)
+        }
 
         // Show warning toast once
         Toast.makeText(context, "Note: Changing Email/Password only updates the database record.", Toast.LENGTH_LONG).show()
 
-        toolbar.setOnMenuItemClickListener { menuItem ->
+        dialogBinding.toolbar.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.action_save -> {
-                    val name = etName.text.toString().trim()
-                    val phone = etPhone.text.toString().trim()
-                    val email = etEmail.text.toString().trim()
-                    val password = etPassword.text.toString().trim()
-                    val role = spinnerRole.selectedItem.toString()
-                    val permission = if (rgPermissions.checkedRadioButtonId == R.id.rbEditor) "Editor" else "Viewer"
-                    
+                    val name = dialogBinding.etEmployeeName.text.toString().trim()
+                    val phone = dialogBinding.etEmployeePhone.text.toString().trim()
+                    val email = dialogBinding.etEmployeeEmail.text.toString().trim()
+                    val password = dialogBinding.etEmployeePassword.text.toString().trim()
+                    val role = dialogBinding.spinnerRole.text.toString()
+                    val permission = if (dialogBinding.rgPermissions.checkedButtonId == R.id.rbEditor) "Editor" else "Viewer"
+
                     if (name.isNotEmpty() && phone.isNotEmpty() && email.isNotEmpty()) {
                         val updates = hashMapOf<String, Any>(
                             "name" to name,
@@ -239,12 +225,12 @@ class EmployeeListFragment : Fragment() {
                             "role" to role,
                             "permissions" to permission
                         )
-                        
+
                         // Only include password if user typed something
                         if (password.isNotEmpty()) {
-                            updates["password"] = password 
+                            updates["password"] = password
                         }
-                        
+
                         viewModel.updateEmployee(employee.uid, updates)
                         dialog.dismiss()
                     } else {
@@ -255,7 +241,7 @@ class EmployeeListFragment : Fragment() {
                 else -> false
             }
         }
-        
+
         dialog.show()
     }
 

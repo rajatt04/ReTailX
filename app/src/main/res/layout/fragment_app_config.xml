@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#F5F5F5">
+    android:orientation="vertical">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
@@ -18,25 +17,26 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Maintenance Mode"
+        android:fontFamily="@font/circular_spotify"
         android:padding="16dp"
-        android:layout_margin="16dp"
-        android:background="@drawable/bg_white_rounded"/>
+        android:layout_margin="16dp"/>
 
     <com.google.android.material.materialswitch.MaterialSwitch
         android:id="@+id/switchNewRegistrations"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Allow New Customer Registrations"
+        android:fontFamily="@font/circular_spotify"
         android:padding="16dp"
         android:layout_marginHorizontal="16dp"
         android:layout_marginBottom="16dp"
-        android:background="@drawable/bg_white_rounded"
         android:checked="true"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Notifications"
+        android:fontFamily="@font/circular_spotify"
         android:padding="16dp"
         android:textColor="?attr/colorPrimary"
         android:textStyle="bold"/>
@@ -46,10 +46,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Order Notifications"
+         android:fontFamily="@font/circular_spotify"
         android:padding="16dp"
         android:layout_marginHorizontal="16dp"
         android:layout_marginBottom="16dp"
-        android:background="@drawable/bg_white_rounded"
         android:checked="true"/>
 
 </LinearLayout>

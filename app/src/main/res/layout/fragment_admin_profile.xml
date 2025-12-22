@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
-    android:background="#F5F5F5">
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -31,6 +30,8 @@
                 android:id="@+id/etBusinessName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:drawableStart="@drawable/rounded_local_convenience_store_24"
+                android:drawablePadding="16sp"
                 android:inputType="textPersonName" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -46,6 +47,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
+                android:drawableStart="@drawable/rounded_mail_24"
+                android:drawablePadding="16sp"
                 android:enabled="false" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -60,15 +63,19 @@
                 android:id="@+id/etPhone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="phone" />
+                android:inputType="phone"
+                android:drawableStart="@drawable/baseline_local_phone_24"
+                android:drawablePadding="16sp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnSaveProfile"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
+            android:layout_height="64dp"
             android:text="Save Changes"
             android:textSize="16sp"
+            app:cornerRadius="8dp"
+            style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
             app:icon="@drawable/round_check_24"/>
 
     </LinearLayout>

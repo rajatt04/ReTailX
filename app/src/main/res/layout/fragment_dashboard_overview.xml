@@ -519,9 +519,10 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
         android:text="Add Employee"
-        app:icon="@drawable/baseline_person_add_24"
+        android:fontFamily="@font/circular_spotify"
         android:textColor="?attr/colorOnPrimaryContainer"
         app:backgroundTint="?attr/colorPrimaryContainer"
-        app:iconTint="?attr/colorOnPrimaryContainer"/>
+        app:icon="@drawable/baseline_person_add_24"
+        app:iconTint="?attr/colorOnPrimaryContainer" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

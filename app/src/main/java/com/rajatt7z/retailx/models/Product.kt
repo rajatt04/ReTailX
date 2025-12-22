@@ -11,4 +11,7 @@ data class Product(
     var category: String = "",
     var imageUrls: List<String> = emptyList(),
     var createdAt: Timestamp = Timestamp.now()
-)
+) {
+    @get:com.google.firebase.firestore.Exclude
+    var isDraft: Boolean = false
+}

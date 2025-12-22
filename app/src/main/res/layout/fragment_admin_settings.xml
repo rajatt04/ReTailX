@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
-    android:background="#F5F5F5">
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,7 +17,7 @@
             android:text="Settings &amp; Security"
             android:textSize="28sp"
             android:textStyle="bold"
-            android:textColor="@color/black"
+            android:fontFamily="@font/circular_spotify"
             android:layout_marginBottom="24dp"/>
 
         <!-- 1. Admin Profile Settings -->
@@ -57,15 +56,13 @@
                         android:layout_height="wrap_content"
                         android:text="Admin Profile"
                         android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/black"/>
+                        android:textStyle="bold"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Manage personal details"
-                        android:textSize="14sp"
-                        android:textColor="#757575"/>
+                        android:textSize="14sp"/>
                 </LinearLayout>
                 
                 <ImageView
@@ -112,15 +109,13 @@
                         android:layout_height="wrap_content"
                         android:text="Change Password"
                         android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/black"/>
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Update your login credentials"
-                        android:textSize="14sp"
-                        android:textColor="#757575"/>
+                        android:textSize="14sp" />
                 </LinearLayout>
                 
                 <ImageView
@@ -152,7 +147,7 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/baseline_settings_24"
+                    android:src="@drawable/rounded_settings_24"
                     app:tint="?attr/colorPrimary"/>
 
                 <LinearLayout
@@ -167,8 +162,7 @@
                         android:layout_height="wrap_content"
                         android:text="App Configuration"
                         android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/black"/>
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -206,7 +200,7 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/baseline_security_24"
+                    android:src="@drawable/rounded_task_alt_24"
                     app:tint="?attr/colorPrimary"/>
 
                 <LinearLayout
@@ -221,8 +215,7 @@
                         android:layout_height="wrap_content"
                         android:text="Roles &amp; Permissions"
                         android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/black"/>
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -260,7 +253,7 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/baseline_history_24"
+                    android:src="@drawable/rounded_deployed_code_history_24"
                     app:tint="?attr/colorPrimary"/>
 
                 <LinearLayout
@@ -275,8 +268,7 @@
                         android:layout_height="wrap_content"
                         android:text="Activity Logs"
                         android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/black"/>
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -297,9 +289,11 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnLogout"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
+            android:layout_height="64dp"
             android:text="Logout"
             android:textSize="16sp"
+            android:fontFamily="@font/circular_spotify"
+            app:cornerRadius="8dp"
             app:icon="@drawable/baseline_logout_24"
             app:iconGravity="textStart"
             android:layout_marginTop="16dp"
