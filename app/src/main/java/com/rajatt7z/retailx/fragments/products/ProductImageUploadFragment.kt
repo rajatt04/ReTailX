@@ -13,6 +13,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.rajatt7z.retailx.databinding.FragmentProductImageUploadBinding
 import com.rajatt7z.retailx.repository.ProductRepository
+import com.rajatt7z.retailx.adapters.LocalImageAdapter
+import androidx.recyclerview.widget.GridLayoutManager
 import kotlinx.coroutines.launch
 
 class ProductImageUploadFragment : Fragment() {
@@ -29,7 +31,7 @@ class ProductImageUploadFragment : Fragment() {
                 Toast.makeText(context, "Max 5 images allowed", Toast.LENGTH_SHORT).show()
             } else {
                 selectedImages.addAll(uris)
-                // In a real app, update a RecyclerView or GridView to show selected images
+                updateImagesList()
                 Toast.makeText(context, "Added ${uris.size} images", Toast.LENGTH_SHORT).show()
             }
         }
@@ -46,6 +48,8 @@ class ProductImageUploadFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupRecyclerView()
+
         binding.btnSelectImages.setOnClickListener {
              pickImagesLauncher.launch("image/*")
         }
@@ -53,6 +57,16 @@ class ProductImageUploadFragment : Fragment() {
         binding.btnUpload.setOnClickListener {
             uploadImages()
         }
+    }
+
+    private fun setupRecyclerView() {
+        binding.recyclerViewImages.layoutManager = GridLayoutManager(context, 3)
+        updateImagesList()
+    }
+
+    private fun updateImagesList() {
+        val adapter = LocalImageAdapter(selectedImages)
+        binding.recyclerViewImages.adapter = adapter
     }
 
     private fun uploadImages() {

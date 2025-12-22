@@ -48,7 +48,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnSelectImages"
-        tools:listitem="@layout/item_product" />
+        tools:listitem="@layout/item_image_upload" />
 
     <Button
         android:id="@+id/btnUpload"

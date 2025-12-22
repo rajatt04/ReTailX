@@ -26,6 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Product Name"
+            android:fontFamily="@font/circular_spotify"
             android:textSize="24sp"
             android:textStyle="bold" />
 

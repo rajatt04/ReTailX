@@ -46,13 +46,13 @@
                 android:id="@+id/cardIcon"
                 android:layout_width="160dp"
                 android:layout_height="160dp"
-                android:layout_marginBottom="32dp"
+                android:layout_marginTop="32dp"
                 app:cardBackgroundColor="?attr/colorControlHighlight"
                 app:cardCornerRadius="48dp"
                 app:cardElevation="0dp"
-                app:layout_constraintBottom_toTopOf="@+id/tvAppName"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
                     android:layout_width="80dp"
@@ -68,259 +68,379 @@
                 android:id="@+id/tvAppName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="32dp"
+                android:layout_marginTop="32dp"
                 android:fontFamily="@font/circular_spotify"
                 android:text="@string/app_name"
                 android:textColor="?attr/colorPrimary"
                 android:textSize="36sp"
-                app:layout_constraintBottom_toTopOf="@+id/featureCardsContainer"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardIcon" />
 
-            <!-- Feature Cards Container - Row 1 -->
-            <LinearLayout
-                android:id="@+id/featureCardsContainer"
+            <!-- Single Feature Cards Container with 2x2 Grid -->
+            <!-- Auto-Scrolling Feature Cards - Play Store Style -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/featureCardsMainContainer"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginBottom="16dp"
-                android:orientation="horizontal"
-                app:layout_constraintBottom_toTopOf="@+id/featureCardsContainer2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
-
-                <!-- AI Prediction Card -->
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="0dp"
-                    android:layout_height="120dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_weight="1"
-                    app:cardBackgroundColor="?attr/colorControlHighlight"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="0dp">
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:padding="16dp">
-
-                        <com.google.android.material.card.MaterialCardView
-                            android:id="@+id/iconAI"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            app:cardBackgroundColor="?attr/colorPrimary"
-                            app:cardCornerRadius="20dp"
-                            app:cardElevation="0dp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent">
-
-                            <ImageView
-                                android:layout_width="24dp"
-                                android:layout_height="24dp"
-                                android:layout_gravity="center"
-                                android:contentDescription="@string/todo"
-                                android:src="@drawable/baseline_person_24"
-                                app:tint="@color/white" />
-
-                        </com.google.android.material.card.MaterialCardView>
-
-                        <TextView
-                            android:id="@+id/tvAITitle"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:fontFamily="@font/circular_spotify"
-                            android:text="@string/ai_sales_prediction"
-                            android:textColor="?attr/colorPrimary"
-                            android:textSize="14sp"
-                            android:textStyle="bold"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/iconAI" />
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                </com.google.android.material.card.MaterialCardView>
-
-                <!-- Inventory Card -->
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="0dp"
-                    android:layout_height="120dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_weight="1"
-                    app:cardBackgroundColor="?attr/colorControlHighlight"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="0dp">
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:padding="16dp">
-
-                        <com.google.android.material.card.MaterialCardView
-                            android:id="@+id/iconInventory"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            app:cardBackgroundColor="?attr/colorPrimary"
-                            app:cardCornerRadius="20dp"
-                            app:cardElevation="0dp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent">
-
-                            <ImageView
-                                android:layout_width="24dp"
-                                android:layout_height="24dp"
-                                android:layout_gravity="center"
-                                android:contentDescription="@string/todo"
-                                android:src="@drawable/baseline_inventory_2_24" />
-
-                        </com.google.android.material.card.MaterialCardView>
-
-                        <TextView
-                            android:id="@+id/tvInventoryTitle"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:fontFamily="@font/circular_spotify"
-                            android:text="@string/inventory_control"
-                            android:textColor="?attr/colorPrimary"
-                            android:textSize="14sp"
-                            android:textStyle="bold"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/iconInventory" />
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                </com.google.android.material.card.MaterialCardView>
-
-            </LinearLayout>
-
-            <!-- Feature Cards Container - Row 2 -->
-            <LinearLayout
-                android:id="@+id/featureCardsContainer2"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginBottom="32dp"
-                android:orientation="horizontal"
+                android:layout_height="0dp"
+                android:layout_marginTop="32dp"
                 app:layout_constraintBottom_toTopOf="@+id/progressBar"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvAppName">
 
-                <!-- Firebase Sync Card -->
-                <com.google.android.material.card.MaterialCardView
+                <!-- HorizontalScrollView for auto-scrolling -->
+                <HorizontalScrollView
+                    android:id="@+id/featureCardsScrollView"
                     android:layout_width="0dp"
-                    android:layout_height="120dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_weight="1"
-                    app:cardBackgroundColor="?attr/colorControlHighlight"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="0dp">
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:clipToPadding="false"
+                    android:overScrollMode="never"
+                    android:paddingStart="24dp"
+                    android:paddingEnd="24dp"
+                    android:scrollbars="none"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:padding="16dp">
+                    <LinearLayout
+                        android:id="@+id/featureCardsContainer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
+                        <!-- AI Prediction Card -->
                         <com.google.android.material.card.MaterialCardView
-                            android:id="@+id/iconSync"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            app:cardBackgroundColor="?attr/colorPrimary"
-                            app:cardCornerRadius="20dp"
+                            android:id="@+id/cardAI"
+                            android:layout_width="280dp"
+                            android:layout_height="220dp"
+                            android:layout_marginEnd="16dp"
+                            app:cardBackgroundColor="?attr/colorPrimaryContainer"
+                            app:cardCornerRadius="28dp"
                             app:cardElevation="0dp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent">
+                            app:strokeWidth="0dp">
 
-                            <ImageView
-                                android:layout_width="24dp"
-                                android:layout_height="24dp"
-                                android:layout_gravity="center"
-                                android:contentDescription="@string/todo"
-                                android:src="@drawable/round_sync_24"
-                                app:tint="@color/white" />
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:padding="24dp">
+
+                                <com.google.android.material.card.MaterialCardView
+                                    android:id="@+id/iconAI"
+                                    android:layout_width="56dp"
+                                    android:layout_height="56dp"
+                                    app:cardBackgroundColor="?attr/colorPrimary"
+                                    app:cardCornerRadius="28dp"
+                                    app:cardElevation="6dp"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                    <ImageView
+                                        android:layout_width="32dp"
+                                        android:layout_height="32dp"
+                                        android:layout_gravity="center"
+                                        android:contentDescription="@string/todo"
+                                        android:src="@drawable/baseline_person_24"
+                                        app:tint="?attr/colorOnPrimary" />
+
+                                </com.google.android.material.card.MaterialCardView>
+
+                                <TextView
+                                    android:id="@+id/tvAITitle"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="16dp"
+                                    android:fontFamily="@font/circular_spotify"
+                                    android:lineSpacingExtra="2dp"
+                                    android:text="@string/ai_sales_prediction"
+                                    android:textColor="?attr/colorOnPrimaryContainer"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@id/iconAI" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8dp"
+                                    android:layout_marginBottom="8dp"
+                                    android:alpha="0.7"
+                                    android:fontFamily="@font/circular_spotify"
+                                    android:text="Predict future sales with AI"
+                                    android:textColor="?attr/colorOnPrimaryContainer"
+                                    android:textSize="13sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@id/tvAITitle" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
 
                         </com.google.android.material.card.MaterialCardView>
 
-                        <TextView
-                            android:id="@+id/tvSyncTitle"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:fontFamily="@font/circular_spotify"
-                            android:text="FireBase &amp; RoomDB Sync"
-                            android:textColor="?attr/colorPrimary"
-                            android:textSize="14sp"
-                            android:textStyle="bold"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/iconSync" />
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                </com.google.android.material.card.MaterialCardView>
-
-                <!-- Material 3 Design Card -->
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="0dp"
-                    android:layout_height="120dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_weight="1"
-                    app:cardBackgroundColor="?attr/colorControlHighlight"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="0dp">
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:padding="16dp">
-
+                        <!-- Inventory Card -->
                         <com.google.android.material.card.MaterialCardView
-                            android:id="@+id/iconDesign"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            app:cardBackgroundColor="?attr/colorPrimary"
-                            app:cardCornerRadius="20dp"
+                            android:id="@+id/cardInventory"
+                            android:layout_width="280dp"
+                            android:layout_height="220dp"
+                            android:layout_marginEnd="16dp"
+                            app:cardBackgroundColor="?attr/colorSecondaryContainer"
+                            app:cardCornerRadius="28dp"
                             app:cardElevation="0dp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent">
+                            app:strokeWidth="0dp">
 
-                            <ImageView
-                                android:layout_width="24dp"
-                                android:layout_height="24dp"
-                                android:layout_gravity="center"
-                                android:contentDescription="@string/todo"
-                                android:src="@drawable/rounded_palette_24"
-                                app:tint="@color/white" />
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:padding="24dp">
+
+                                <com.google.android.material.card.MaterialCardView
+                                    android:id="@+id/iconInventory"
+                                    android:layout_width="56dp"
+                                    android:layout_height="56dp"
+                                    app:cardBackgroundColor="?attr/colorSecondary"
+                                    app:cardCornerRadius="28dp"
+                                    app:cardElevation="6dp"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                    <ImageView
+                                        android:layout_width="32dp"
+                                        android:layout_height="32dp"
+                                        android:layout_gravity="center"
+                                        android:contentDescription="@string/todo"
+                                        android:src="@drawable/baseline_inventory_2_24"
+                                        app:tint="?attr/colorOnSecondary" />
+
+                                </com.google.android.material.card.MaterialCardView>
+
+                                <TextView
+                                    android:id="@+id/tvInventoryTitle"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="16dp"
+                                    android:fontFamily="@font/circular_spotify"
+                                    android:lineSpacingExtra="2dp"
+                                    android:text="@string/inventory_control"
+                                    android:textColor="?attr/colorOnSecondaryContainer"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@id/iconInventory" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8dp"
+                                    android:layout_marginBottom="8dp"
+                                    android:alpha="0.7"
+                                    android:fontFamily="@font/circular_spotify"
+                                    android:text="Manage stock efficiently"
+                                    android:textColor="?attr/colorOnSecondaryContainer"
+                                    android:textSize="13sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@id/tvInventoryTitle" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
 
                         </com.google.android.material.card.MaterialCardView>
 
-                        <TextView
-                            android:id="@+id/tvDesignTitle"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:fontFamily="@font/circular_spotify"
-                            android:text="Material 3 Expressive Design"
-                            android:textColor="?attr/colorPrimary"
-                            android:textSize="14sp"
-                            android:textStyle="bold"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/iconDesign" />
+                        <!-- Firebase Sync Card -->
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/cardSync"
+                            android:layout_width="280dp"
+                            android:layout_height="220dp"
+                            android:layout_marginEnd="16dp"
+                            app:cardBackgroundColor="?attr/colorTertiaryContainer"
+                            app:cardCornerRadius="28dp"
+                            app:cardElevation="0dp"
+                            app:strokeWidth="0dp">
 
-                    </androidx.constraintlayout.widget.ConstraintLayout>
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:padding="24dp">
 
-                </com.google.android.material.card.MaterialCardView>
+                                <com.google.android.material.card.MaterialCardView
+                                    android:id="@+id/iconSync"
+                                    android:layout_width="56dp"
+                                    android:layout_height="56dp"
+                                    app:cardBackgroundColor="?attr/colorTertiary"
+                                    app:cardCornerRadius="28dp"
+                                    app:cardElevation="6dp"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent">
 
-            </LinearLayout>
+                                    <ImageView
+                                        android:layout_width="32dp"
+                                        android:layout_height="32dp"
+                                        android:layout_gravity="center"
+                                        android:contentDescription="@string/todo"
+                                        android:src="@drawable/round_sync_24"
+                                        app:tint="?attr/colorOnTertiary" />
+
+                                </com.google.android.material.card.MaterialCardView>
+
+                                <TextView
+                                    android:id="@+id/tvSyncTitle"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="16dp"
+                                    android:fontFamily="@font/circular_spotify"
+                                    android:lineSpacingExtra="2dp"
+                                    android:text="Firebase &amp; RoomDB Sync"
+                                    android:textColor="?attr/colorOnTertiaryContainer"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@id/iconSync" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8dp"
+                                    android:layout_marginBottom="8dp"
+                                    android:alpha="0.7"
+                                    android:fontFamily="@font/circular_spotify"
+                                    android:text="Real-time cloud backup"
+                                    android:textColor="?attr/colorOnTertiaryContainer"
+                                    android:textSize="13sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@id/tvSyncTitle" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <!-- Material 3 Design Card -->
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/cardDesign"
+                            android:layout_width="280dp"
+                            android:layout_height="220dp"
+                            app:cardBackgroundColor="?attr/colorErrorContainer"
+                            app:cardCornerRadius="28dp"
+                            app:cardElevation="0dp"
+                            app:strokeWidth="0dp">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:padding="24dp">
+
+                                <com.google.android.material.card.MaterialCardView
+                                    android:id="@+id/iconDesign"
+                                    android:layout_width="56dp"
+                                    android:layout_height="56dp"
+                                    app:cardBackgroundColor="?attr/colorError"
+                                    app:cardCornerRadius="28dp"
+                                    app:cardElevation="6dp"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                    <ImageView
+                                        android:layout_width="32dp"
+                                        android:layout_height="32dp"
+                                        android:layout_gravity="center"
+                                        android:contentDescription="@string/todo"
+                                        android:src="@drawable/rounded_palette_24"
+                                        app:tint="?attr/colorOnError" />
+
+                                </com.google.android.material.card.MaterialCardView>
+
+                                <TextView
+                                    android:id="@+id/tvDesignTitle"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="16dp"
+                                    android:fontFamily="@font/circular_spotify"
+                                    android:lineSpacingExtra="2dp"
+                                    android:text="Material 3 Expressive Design"
+                                    android:textColor="?attr/colorOnErrorContainer"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@id/iconDesign" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8dp"
+                                    android:layout_marginBottom="8dp"
+                                    android:alpha="0.7"
+                                    android:fontFamily="@font/circular_spotify"
+                                    android:text="Beautiful modern interface"
+                                    android:textColor="?attr/colorOnErrorContainer"
+                                    android:textSize="13sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@id/tvDesignTitle" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                    </LinearLayout>
+
+                </HorizontalScrollView>
+
+                <!-- Page Indicator Dots -->
+                <LinearLayout
+                    android:id="@+id/pageIndicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/featureCardsScrollView">
+
+                    <View
+                        android:id="@+id/dot1"
+                        android:layout_width="8dp"
+                        android:layout_height="8dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/indicator_dot"
+                        android:backgroundTint="?attr/colorPrimary" />
+
+                    <View
+                        android:id="@+id/dot2"
+                        android:layout_width="8dp"
+                        android:layout_height="8dp"
+                        android:layout_marginEnd="6dp"
+                        android:alpha="0.3"
+                        android:background="@drawable/indicator_dot"
+                        android:backgroundTint="?attr/colorOnSurface" />
+
+                    <View
+                        android:id="@+id/dot3"
+                        android:layout_width="8dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="6dp"
+                        android:alpha="0.3"
+                        android:background="@drawable/indicator_dot"
+                        android:backgroundTint="?attr/colorOnSurface" />
+
+                    <View
+                        android:id="@+id/dot4"
+                        android:layout_width="8dp"
+                        android:layout_height="8dp"
+                        android:alpha="0.3"
+                        android:background="@drawable/indicator_dot"
+                        android:backgroundTint="?attr/colorOnSurface" />
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <!-- Business Login Button -->
             <com.google.android.material.button.MaterialButton
@@ -352,7 +472,6 @@
                 android:layout_height="64dp"
                 android:layout_marginStart="32dp"
                 android:layout_marginEnd="32dp"
-                android:layout_marginBottom="16dp"
                 android:fontFamily="@font/circular_spotify"
                 android:text="@string/login_as_customer"
                 android:textAllCaps="false"

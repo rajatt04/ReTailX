@@ -12,15 +12,23 @@
         android:layout_height="wrap_content"
         android:padding="8dp">
 
-        <ImageView
-            android:id="@+id/imgProductThumbnail"
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/imgProductThumbnailCV"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:scaleType="centerCrop"
-            android:src="@android:drawable/ic_menu_gallery"
+            app:cardCornerRadius="8dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <ImageView
+                android:id="@+id/imgProductThumbnail"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:scaleType="centerCrop"
+                android:src="@android:drawable/ic_menu_gallery"/>
+
+        </com.google.android.material.card.MaterialCardView>
 
         <TextView
             android:id="@+id/tvProductName"
@@ -30,7 +38,7 @@
             android:text="Product Name"
             android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@id/imgProductThumbnail"
+            app:layout_constraintStart_toEndOf="@id/imgProductThumbnailCV"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
@@ -43,7 +51,7 @@
             android:text="$99.99"
             android:textSize="16sp"
             android:textColor="@android:color/holo_green_dark"
-            app:layout_constraintStart_toEndOf="@id/imgProductThumbnail"
+            app:layout_constraintStart_toEndOf="@id/imgProductThumbnailCV"
             app:layout_constraintTop_toBottomOf="@id/tvProductName"/>
 
         <TextView
@@ -54,7 +62,7 @@
             android:layout_marginTop="4dp"
             android:text="Stock: 10"
             android:textSize="14sp"
-            app:layout_constraintStart_toEndOf="@id/imgProductThumbnail"
+            app:layout_constraintStart_toEndOf="@id/imgProductThumbnailCV"
             app:layout_constraintTop_toBottomOf="@id/tvProductPrice"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
