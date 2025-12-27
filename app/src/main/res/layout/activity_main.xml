@@ -46,7 +46,6 @@
                 android:id="@+id/cardIcon"
                 android:layout_width="160dp"
                 android:layout_height="160dp"
-                android:layout_marginTop="32dp"
                 app:cardBackgroundColor="?attr/colorControlHighlight"
                 app:cardCornerRadius="48dp"
                 app:cardElevation="0dp"
@@ -68,7 +67,7 @@
                 android:id="@+id/tvAppName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="16dp"
                 android:fontFamily="@font/circular_spotify"
                 android:text="@string/app_name"
                 android:textColor="?attr/colorPrimary"
@@ -83,7 +82,8 @@
                 android:id="@+id/featureCardsMainContainer"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
                 app:layout_constraintBottom_toTopOf="@+id/progressBar"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -94,12 +94,12 @@
                     android:id="@+id/featureCardsScrollView"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
                     android:clipToPadding="false"
                     android:overScrollMode="never"
                     android:paddingStart="24dp"
                     android:paddingEnd="24dp"
                     android:scrollbars="none"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
@@ -393,53 +393,6 @@
 
                 </HorizontalScrollView>
 
-                <!-- Page Indicator Dots -->
-                <LinearLayout
-                    android:id="@+id/pageIndicator"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/featureCardsScrollView">
-
-                    <View
-                        android:id="@+id/dot1"
-                        android:layout_width="8dp"
-                        android:layout_height="8dp"
-                        android:layout_marginEnd="6dp"
-                        android:background="@drawable/indicator_dot"
-                        android:backgroundTint="?attr/colorPrimary" />
-
-                    <View
-                        android:id="@+id/dot2"
-                        android:layout_width="8dp"
-                        android:layout_height="8dp"
-                        android:layout_marginEnd="6dp"
-                        android:alpha="0.3"
-                        android:background="@drawable/indicator_dot"
-                        android:backgroundTint="?attr/colorOnSurface" />
-
-                    <View
-                        android:id="@+id/dot3"
-                        android:layout_width="8dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginEnd="6dp"
-                        android:alpha="0.3"
-                        android:background="@drawable/indicator_dot"
-                        android:backgroundTint="?attr/colorOnSurface" />
-
-                    <View
-                        android:id="@+id/dot4"
-                        android:layout_width="8dp"
-                        android:layout_height="8dp"
-                        android:alpha="0.3"
-                        android:background="@drawable/indicator_dot"
-                        android:backgroundTint="?attr/colorOnSurface" />
-
-                </LinearLayout>
-
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <!-- Business Login Button -->
@@ -472,6 +425,7 @@
                 android:layout_height="64dp"
                 android:layout_marginStart="32dp"
                 android:layout_marginEnd="32dp"
+                android:layout_marginBottom="16dp"
                 android:fontFamily="@font/circular_spotify"
                 android:text="@string/login_as_customer"
                 android:textAllCaps="false"

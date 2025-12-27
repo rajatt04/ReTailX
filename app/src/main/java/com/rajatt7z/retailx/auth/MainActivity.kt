@@ -71,7 +71,7 @@ class MainActivity : AppCompatActivity() {
             autoScrollHandler.postDelayed({
                 isAutoScrolling = true
                 startAutoScroll()
-            }, 5000)
+            }, 2500)
             false
         }
 
@@ -110,30 +110,6 @@ class MainActivity : AppCompatActivity() {
                 .setInterpolator(AccelerateDecelerateInterpolator())
                 .start()
         }
-
-        // Animate icons with floating effect
-        icons.forEachIndexed { index, icon ->
-            icon.postDelayed({
-                startIconFloatAnimation(icon)
-            }, (index * 150 + 600).toLong())
-        }
-    }
-
-    private fun startIconFloatAnimation(icon: View) {
-        val translationY = ObjectAnimator.ofFloat(icon, "translationY", 0f, -12f, 0f)
-        val rotation = ObjectAnimator.ofFloat(icon, "rotation", 0f, 5f, -5f, 0f)
-
-        AnimatorSet().apply {
-            playTogether(translationY, rotation)
-            duration = 3000
-            interpolator = AccelerateDecelerateInterpolator()
-            doOnEnd {
-                if (icon.isAttachedToWindow) {
-                    start()
-                }
-            }
-            start()
-        }
     }
 
     private fun startAutoScroll() {
@@ -155,30 +131,9 @@ class MainActivity : AppCompatActivity() {
                 start()
             }
 
-            // Update page indicators
-            updatePageIndicators(currentPage)
-
             // Continue auto-scrolling
             startAutoScroll()
         }, scrollDelay)
-    }
-
-    private fun updatePageIndicators(page: Int) {
-        val dots = listOf(
-            binding.dot1,
-            binding.dot2,
-            binding.dot3,
-            binding.dot4
-        )
-
-        dots.forEachIndexed { index, dot ->
-            dot.animate()
-                .scaleX(if (index == page) 1.3f else 1f)
-                .scaleY(if (index == page) 1.3f else 1f)
-                .alpha(if (index == page) 1f else 0.3f)
-                .setDuration(300)
-                .start()
-        }
     }
 
     private fun setupCardClickListeners() {
