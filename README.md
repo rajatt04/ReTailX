@@ -2,6 +2,21 @@
 
 Welcome to **ReTailX**, a robust, modern, and scalable retail management Android application built with Kotlin. ReTailX is designed to streamline retail operations ranging from billing and inventory management to AI-powered sales insights and employee tracking. It leverages cutting-edge Android technologies and architectural best practices to deliver a premium user experience for both Store Managers and Sales Executives.
 
+---
+
+## 📥 Download APK
+
+<p align="center">
+  <a href="https://github.com/rajatt04/ReTailX/releases/download/1.0/app-release.apk">
+    <img src="https://img.shields.io/badge/Download-ReTailX%20APK-FF6B6B?style=for-the-badge&logo=android&logoColor=white" />
+  </a>
+</p>
+<p align="center">
+  ⚡ Fast • 🎯 Minimal • 📱 Built with Kotlin & MVVM
+</p>
+
+---
+
 ## App Screenshots
 
 Below are some screenshots of the ReTailX application showcasing its features and user interface:
